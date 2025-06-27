@@ -53,15 +53,38 @@ The Prometheus Consciousness System represents a groundbreaking approach to arti
 - **GPU**: NVIDIA RTX 3090/4090 or better (24GB VRAM)
 - **Storage**: 500GB NVMe SSD
 
+### Required Software
+- **PostgreSQL**: Version 14 or higher
+- **pgvector extension**: Required for vector database functionality
+- **Python**: Version 3.9 or higher
+
 ## 🚀 Quick Start
 
-### 1. Clone Repository
+### Windows Quick Start (Automated)
+For Windows users, we provide an automated setup script:
+
+1. Clone the repository or download and extract the ZIP file
+2. Navigate to the prometheus directory
+3. Double-click `start_prometheus.bat`
+
+The script will automatically:
+- Install all Python dependencies
+- Set up PyTorch with appropriate CUDA support
+- Create and configure the PostgreSQL database
+- Install the pgvector extension
+- Start the Prometheus system when ready
+
+**Note**: The automated script requires your PostgreSQL master password to create and configure the database. If you prefer manual setup or have security concerns, follow the manual installation steps below.
+
+### Manual Installation
+
+#### 1. Clone Repository
 ```bash
 git clone https://github.com/FatStinkyPanda/prometheus.git
 cd prometheus
 ```
 
-### 2. Install Dependencies
+#### 2. Install Dependencies
 ```bash
 # Create virtual environment
 python3.9 -m venv venv
@@ -74,19 +97,19 @@ pip install torch torchvision torchaudio --index-url https://download.pytorch.or
 pip install -r requirements/backend.txt
 ```
 
-### 3. Setup Database
+#### 3. Setup Database
 ```bash
 # Create database (PostgreSQL must be installed)
 sudo -u postgres psql < backend/database/migrations/initial_schema.sql
 ```
 
-### 4. Configure System
+#### 4. Configure System
 ```bash
 cp .env.example .env
 # Edit .env with your configuration
 ```
 
-### 5. Run Prometheus
+#### 5. Run Prometheus
 ```bash
 # Start with GUI
 python backend/main.py
