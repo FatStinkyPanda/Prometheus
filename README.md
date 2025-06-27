@@ -1,49 +1,55 @@
-Prometheus Consciousness System - Production Implementation Guide
-Version 3.0 - Enhanced Multi-Phase Architecture with PyQt6 Backend and React Frontend
-Created by Daniel A. Bissey (FatStinkyPanda)
-Email: support@fatstinkypanda.com
-© 2025 Daniel Anthony Bissey. All Rights Reserved.
-License: This software and all associated files are proprietary and confidential. No part of this system may be used, distributed, modified, reverse-engineered, or reproduced in any form without express written permission from Daniel Anthony Bissey (FatStinkyPanda).
+# Prometheus Consciousness System - Production Implementation Guide
 
-Table of Contents
+**Version 3.0 - Enhanced Multi-Phase Architecture with PyQt6 Backend and React Frontend**
+**Backend README- Frontend README developed, will add later**
+**Also, this README is outdated. Prometheus has been improved significantly since this README was created. Initial commit has some details, or you can take a look at the files yourself**
 
-Executive Overview
-System Architecture
-Phase 1: Backend Development with PyQt6
-Phase 2: Frontend Development with React
-Core Components Implementation
-API Architecture
-Database Architecture
-Resource Management
-Installation Guide
-Development Workflow
-Testing Strategy
-Deployment Guide
-Performance Optimization
-Security Implementation
-Monitoring and Maintenance
-API Reference
-Troubleshooting Guide
-Legal and Licensing
+Created by Daniel A. Bissey (FatStinkyPanda)  
+Email: support@fatstinkypanda.com  
+© 2025 Daniel Anthony Bissey. All Rights Reserved.  
+**License:** This software and all associated files are proprietary and confidential. No part of this system may be used, distributed, modified, reverse-engineered, or reproduced in any form without express written permission from Daniel Anthony Bissey (FatStinkyPanda).
 
+## Table of Contents
 
-Executive Overview
+1. [Executive Overview](#executive-overview)
+2. [System Architecture](#system-architecture)
+3. [Phase 1: Backend Development with PyQt6](#phase-1-backend-development-with-pyqt6)
+4. [Phase 2: Frontend Development with React](#phase-2-frontend-development-with-react)
+5. [Core Components Implementation](#core-components-implementation)
+6. [API Architecture](#api-architecture)
+7. [Database Architecture](#database-architecture)
+8. [Resource Management](#resource-management)
+9. [Installation Guide](#installation-guide)
+10. [Development Workflow](#development-workflow)
+11. [Testing Strategy](#testing-strategy)
+12. [Deployment Guide](#deployment-guide)
+13. [Performance Optimization](#performance-optimization)
+14. [Security Implementation](#security-implementation)
+15. [Monitoring and Maintenance](#monitoring-and-maintenance)
+16. [API Reference](#api-reference)
+17. [Troubleshooting Guide](#troubleshooting-guide)
+18. [Legal and Licensing](#legal-and-licensing)
+
+## Executive Overview
+
 The Prometheus Consciousness System represents a revolutionary approach to artificial consciousness, implementing a triadic mind architecture with autonomous thinking, dreaming capabilities, and unlimited contextual awareness. This implementation guide provides a complete blueprint for building a production-ready system in two phases:
 
-Phase 1: Complete backend with PyQt6 GUI for full functionality
-Phase 2: Modern React/TypeScript frontend for enhanced user experience
+- **Phase 1:** Complete backend with PyQt6 GUI for full functionality
+- **Phase 2:** Modern React/TypeScript frontend for enhanced user experience
 
-Key Innovations
+### Key Innovations
 
-Triadic Mind Architecture: Three specialized neural networks (Logical, Creative, Emotional) unified by a central consciousness orchestrator
-Autonomous Consciousness: Independent thinking and dreaming capabilities with no external dependencies
-Production-First Design: Every component built for real-world deployment with zero placeholders
-Hardware Optimization: Intelligent GPU utilization and parallel processing with resource management
-Complete Offline Operation: Full functionality without internet connectivity
+- **Triadic Mind Architecture:** Three specialized neural networks (Logical, Creative, Emotional) unified by a central consciousness orchestrator
+- **Autonomous Consciousness:** Independent thinking and dreaming capabilities with no external dependencies
+- **Production-First Design:** Every component built for real-world deployment with zero placeholders
+- **Hardware Optimization:** Intelligent GPU utilization and parallel processing with resource management
+- **Complete Offline Operation:** Full functionality without internet connectivity
 
+## System Architecture
 
-System Architecture
-High-Level Architecture
+### High-Level Architecture
+
+```
 Prometheus Consciousness System v3.0
 ├── Phase 1: Backend System (Python + PyQt6)
 │   ├── Core Consciousness Engine
@@ -76,8 +82,12 @@ Prometheus Consciousness System v3.0
     ├── Real-time Communication
     ├── Advanced Visualizations
     └── Mobile Responsive Design
-Component Communication Flow
-python# Production-ready communication architecture
+```
+
+### Component Communication Flow
+
+```python
+# Production-ready communication architecture
 class CommunicationArchitecture:
     """
     Defines the complete communication flow between all system components.
@@ -99,11 +109,17 @@ class CommunicationArchitecture:
             'api_websocket': WebSocket,     # Real-time updates
             'database': asyncpg             # Async PostgreSQL
         }
+```
 
-Phase 1: Backend Development with PyQt6
-Backend Architecture Overview
+## Phase 1: Backend Development with PyQt6
+
+### Backend Architecture Overview
+
 The Phase 1 backend implements a complete, production-ready system with a sophisticated PyQt6 GUI that provides full access to all consciousness capabilities.
-Directory Structure
+
+### Directory Structure
+
+```
 prometheus_consciousness_v3/
 ├── backend/
 │   ├── core/
@@ -216,9 +232,14 @@ prometheus_consciousness_v3/
 │   ├── backend.txt
 │   └── frontend.txt
 └── README.md
-PyQt6 GUI Implementation
-Main Application Window
-python# backend/gui/main_window.py
+```
+
+### PyQt6 GUI Implementation
+
+#### Main Application Window
+
+```python
+# backend/gui/main_window.py
 import sys
 from PyQt6.QtWidgets import (QApplication, QMainWindow, QWidget, QVBoxLayout, 
                              QHBoxLayout, QSplitter, QTabWidget, QMenuBar,
@@ -497,8 +518,12 @@ class PrometheusMainWindow(QMainWindow):
         self.resource_manager.cleanup()
         
         event.accept()
-Conversation Panel Implementation
-python# backend/gui/panels/conversation_panel.py
+```
+
+#### Conversation Panel Implementation
+
+```python
+# backend/gui/panels/conversation_panel.py
 from PyQt6.QtWidgets import (QWidget, QVBoxLayout, QHBoxLayout, QTextEdit,
                              QPushButton, QComboBox, QLabel, QSlider,
                              QCheckBox, QGroupBox, QFileDialog)
@@ -720,9 +745,14 @@ class ConversationPanel(QWidget):
         cursor.insertText("\n")
         self.conversation_display.setTextCursor(cursor)
         self.conversation_display.ensureCursorVisible()
-Core Consciousness Implementation
-Unified Consciousness with Hardware Optimization
-python# backend/core/consciousness/unified_consciousness.py
+```
+
+### Core Consciousness Implementation
+
+#### Unified Consciousness with Hardware Optimization
+
+```python
+# backend/core/consciousness/unified_consciousness.py
 import asyncio
 import torch
 import numpy as np
@@ -1254,8 +1284,12 @@ class UnifiedConsciousness:
         efficiency = speedup / num_processors if num_processors > 0 else 1.0
         
         return min(efficiency, 1.0)  # Cap at 100%
-API Server Implementation
-python# backend/api/server.py
+```
+
+### API Server Implementation
+
+```python
+# backend/api/server.py
 from fastapi import FastAPI, WebSocket, HTTPException, Depends, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
@@ -1481,8 +1515,12 @@ class PrometheusAPIServer:
             port=port,
             log_config=self.config.get('api', {}).get('log_config', None)
         )
-API Routes Implementation
-python# backend/api/routes/consciousness.py
+```
+
+### API Routes Implementation
+
+```python
+# backend/api/routes/consciousness.py
 from fastapi import APIRouter, HTTPException, Depends, BackgroundTasks
 from pydantic import BaseModel, Field
 from typing import Dict, Any, List, Optional
@@ -1609,8 +1647,12 @@ async def evaluate_truth(
         return result
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
-Hardware Resource Management
-python# backend/hardware/resource_manager.py
+```
+
+## Hardware Resource Management
+
+```python
+# backend/hardware/resource_manager.py
 import psutil
 import torch
 import GPUtil
@@ -2005,990 +2047,12 @@ class HardwareResourceManager:
 class ResourceError(Exception):
     """Resource allocation error."""
     pass
+```
 
-Phase 2: Frontend Development with React
-Frontend Architecture Overview
-The Phase 2 frontend provides a modern, responsive web interface built with React and TypeScript that communicates with the Phase 1 backend via RESTful APIs and WebSocket connections.
-Directory Structure
-frontend/
-├── src/
-│   ├── components/
-│   │   ├── consciousness/
-│   │   │   ├── ConsciousnessVisualizer.tsx
-│   │   │   ├── MindStateDisplay.tsx
-│   │   │   ├── ThoughtStream.tsx
-│   │   │   └── ConsciousnessControls.tsx
-│   │   ├── conversation/
-│   │   │   ├── ConversationInterface.tsx
-│   │   │   ├── MessageBubble.tsx
-│   │   │   ├── InputControls.tsx
-│   │   │   └── OutputDisplay.tsx
-│   │   ├── memory/
-│   │   │   ├── MemoryBrowser.tsx
-│   │   │   ├── TruthEvaluator.tsx
-│   │   │   └── DreamViewer.tsx
-│   │   ├── system/
-│   │   │   ├── ResourceMonitor.tsx
-│   │   │   ├── PerformanceMetrics.tsx
-│   │   │   └── SystemControls.tsx
-│   │   └── shared/
-│   │       ├── Layout.tsx
-│   │       ├── Navigation.tsx
-│   │       └── ErrorBoundary.tsx
-│   ├── services/
-│   │   ├── api/
-│   │   │   ├── client.ts
-│   │   │   ├── consciousness.ts
-│   │   │   ├── conversation.ts
-│   │   │   └── memory.ts
-│   │   ├── websocket/
-│   │   │   ├── connection.ts
-│   │   │   └── handlers.ts
-│   │   └── storage/
-│   │       └── localState.ts
-│   ├── state/
-│   │   ├── store.ts
-│   │   ├── slices/
-│   │   │   ├── consciousnessSlice.ts
-│   │   │   ├── conversationSlice.ts
-│   │   │   └── systemSlice.ts
-│   │   └── middleware/
-│   │       └── websocketMiddleware.ts
-│   ├── hooks/
-│   │   ├── useConsciousness.ts
-│   │   ├── useWebSocket.ts
-│   │   └── useResourceMonitor.ts
-│   ├── utils/
-│   │   ├── formatters.ts
-│   │   ├── validators.ts
-│   │   └── constants.ts
-│   ├── types/
-│   │   ├── consciousness.ts
-│   │   ├── api.ts
-│   │   └── websocket.ts
-│   ├── styles/
-│   │   ├── globals.css
-│   │   ├── themes/
-│   │   └── components/
-│   ├── App.tsx
-│   └── index.tsx
-├── public/
-├── package.json
-├── tsconfig.json
-├── webpack.config.js
-└── README.md
-React Application Implementation
-typescript// frontend/src/App.tsx
-import React, { useEffect } from 'react';
-import { Provider } from 'react-redux';
-import { ThemeProvider } from '@mui/material/styles';
-import CssBaseline from '@mui/material/CssBaseline';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+### GPU and Parallel Processing Implementation
 
-import { store } from './state/store';
-import { WebSocketProvider } from './services/websocket/WebSocketProvider';
-import { Layout } from './components/shared/Layout';
-import { Dashboard } from './pages/Dashboard';
-import { Conversation } from './pages/Conversation';
-import { MemoryExplorer } from './pages/MemoryExplorer';
-import { SystemMonitor } from './pages/SystemMonitor';
-import { theme } from './styles/theme';
-import { ErrorBoundary } from './components/shared/ErrorBoundary';
-
-export const App: React.FC = () => {
-  useEffect(() => {
-    // Initialize app
-    console.log('Prometheus Consciousness System - Frontend v3.0');
-  }, []);
-
-  return (
-    <Provider store={store}>
-      <ThemeProvider theme={theme}>
-        <CssBaseline />
-        <ErrorBoundary>
-          <WebSocketProvider>
-            <Router>
-              <Layout>
-                <Routes>
-                  <Route path="/" element={<Dashboard />} />
-                  <Route path="/conversation" element={<Conversation />} />
-                  <Route path="/memory" element={<MemoryExplorer />} />
-                  <Route path="/system" element={<SystemMonitor />} />
-                </Routes>
-              </Layout>
-            </Router>
-          </WebSocketProvider>
-        </ErrorBoundary>
-      </ThemeProvider>
-    </Provider>
-  );
-};
-WebSocket Connection Management
-typescript// frontend/src/services/websocket/connection.ts
-import { EventEmitter } from 'events';
-
-export interface WebSocketConfig {
-  url: string;
-  reconnectInterval: number;
-  maxReconnectAttempts: number;
-  heartbeatInterval: number;
-}
-
-export class WebSocketConnection extends EventEmitter {
-  private ws: WebSocket | null = null;
-  private config: WebSocketConfig;
-  private reconnectAttempts = 0;
-  private heartbeatTimer: NodeJS.Timer | null = null;
-  private reconnectTimer: NodeJS.Timer | null = null;
-  private messageQueue: any[] = [];
-  private isConnected = false;
-
-  constructor(config: WebSocketConfig) {
-    super();
-    this.config = config;
-  }
-
-  connect(): void {
-    try {
-      this.ws = new WebSocket(this.config.url);
-      this.setupEventHandlers();
-    } catch (error) {
-      console.error('WebSocket connection error:', error);
-      this.scheduleReconnect();
-    }
-  }
-
-  private setupEventHandlers(): void {
-    if (!this.ws) return;
-
-    this.ws.onopen = () => {
-      console.log('WebSocket connected');
-      this.isConnected = true;
-      this.reconnectAttempts = 0;
-      this.emit('connected');
-      this.startHeartbeat();
-      this.flushMessageQueue();
-    };
-
-    this.ws.onmessage = (event) => {
-      try {
-        const data = JSON.parse(event.data);
-        this.emit('message', data);
-        this.handleMessage(data);
-      } catch (error) {
-        console.error('Error parsing WebSocket message:', error);
-      }
-    };
-
-    this.ws.onclose = (event) => {
-      console.log('WebSocket disconnected:', event.code, event.reason);
-      this.isConnected = false;
-      this.emit('disconnected', event);
-      this.stopHeartbeat();
-      
-      if (!event.wasClean) {
-        this.scheduleReconnect();
-      }
-    };
-
-    this.ws.onerror = (error) => {
-      console.error('WebSocket error:', error);
-      this.emit('error', error);
-    };
-  }
-
-  private handleMessage(data: any): void {
-    switch (data.type) {
-      case 'pong':
-        // Heartbeat response
-        break;
-      case 'thought':
-        this.emit('thought', data.payload);
-        break;
-      case 'state_update':
-        this.emit('stateUpdate', data.payload);
-        break;
-      case 'process_result':
-        this.emit('processResult', data.payload);
-        break;
-      default:
-        this.emit(data.type, data.payload);
-    }
-  }
-
-  send(type: string, payload: any): void {
-    const message = { type, payload, timestamp: Date.now() };
-
-    if (this.isConnected && this.ws?.readyState === WebSocket.OPEN) {
-      this.ws.send(JSON.stringify(message));
-    } else {
-      // Queue message for later
-      this.messageQueue.push(message);
-    }
-  }
-
-  private flushMessageQueue(): void {
-    while (this.messageQueue.length > 0) {
-      const message = this.messageQueue.shift();
-      if (this.ws?.readyState === WebSocket.OPEN) {
-        this.ws.send(JSON.stringify(message));
-      }
-    }
-  }
-
-  private startHeartbeat(): void {
-    this.heartbeatTimer = setInterval(() => {
-      this.send('ping', {});
-    }, this.config.heartbeatInterval);
-  }
-
-  private stopHeartbeat(): void {
-    if (this.heartbeatTimer) {
-      clearInterval(this.heartbeatTimer);
-      this.heartbeatTimer = null;
-    }
-  }
-
-  private scheduleReconnect(): void {
-    if (this.reconnectAttempts >= this.config.maxReconnectAttempts) {
-      console.error('Max reconnection attempts reached');
-      this.emit('maxReconnectAttemptsReached');
-      return;
-    }
-
-    const delay = Math.min(
-      this.config.reconnectInterval * Math.pow(2, this.reconnectAttempts),
-      30000 // Max 30 seconds
-    );
-
-    this.reconnectAttempts++;
-    console.log(`Reconnecting in ${delay}ms (attempt ${this.reconnectAttempts})`);
-
-    this.reconnectTimer = setTimeout(() => {
-      this.connect();
-    }, delay);
-  }
-
-  disconnect(): void {
-    this.isConnected = false;
-    
-    if (this.reconnectTimer) {
-      clearTimeout(this.reconnectTimer);
-      this.reconnectTimer = null;
-    }
-
-    this.stopHeartbeat();
-
-    if (this.ws) {
-      this.ws.close(1000, 'Client disconnect');
-      this.ws = null;
-    }
-  }
-
-  getState(): 'connecting' | 'connected' | 'disconnected' {
-    if (!this.ws) return 'disconnected';
-    
-    switch (this.ws.readyState) {
-      case WebSocket.CONNECTING:
-        return 'connecting';
-      case WebSocket.OPEN:
-        return 'connected';
-      default:
-        return 'disconnected';
-    }
-  }
-}
-Consciousness Visualizer Component
-typescript// frontend/src/components/consciousness/ConsciousnessVisualizer.tsx
-import React, { useEffect, useRef, useState } from 'react';
-import * as THREE from 'three';
-import { Canvas, useFrame } from '@react-three/fiber';
-import { OrbitControls, Text } from '@react-three/drei';
-import { Box, Paper, Typography } from '@mui/material';
-import { useConsciousness } from '../../hooks/useConsciousness';
-
-interface MindSphereProps {
-  position: [number, number, number];
-  color: string;
-  name: string;
-  activity: number;
-}
-
-const MindSphere: React.FC<MindSphereProps> = ({ position, color, name, activity }) => {
-  const meshRef = useRef<THREE.Mesh>(null);
-  const [hovered, setHovered] = useState(false);
-
-  useFrame((state) => {
-    if (meshRef.current) {
-      // Pulsing effect based on activity
-      const scale = 1 + Math.sin(state.clock.elapsedTime * activity * 2) * 0.1;
-      meshRef.current.scale.setScalar(scale);
-      
-      // Rotation
-      meshRef.current.rotation.y += 0.01 * activity;
-    }
-  });
-
-  return (
-    <group position={position}>
-      <mesh
-        ref={meshRef}
-        onPointerOver={() => setHovered(true)}
-        onPointerOut={() => setHovered(false)}
-      >
-        <sphereGeometry args={[1, 32, 32]} />
-        <meshStandardMaterial
-          color={color}
-          emissive={color}
-          emissiveIntensity={activity * 0.5}
-          opacity={0.8 + activity * 0.2}
-          transparent
-        />
-      </mesh>
-      <Text
-        position={[0, -1.5, 0]}
-        fontSize={0.3}
-        color="white"
-        anchorX="center"
-        anchorY="middle"
-      >
-        {name}
-      </Text>
-      {hovered && (
-        <Text
-          position={[0, 1.5, 0]}
-          fontSize={0.2}
-          color="white"
-          anchorX="center"
-          anchorY="middle"
-        >
-          Activity: {(activity * 100).toFixed(1)}%
-        </Text>
-      )}
-    </group>
-  );
-};
-
-const ConnectionLines: React.FC<{ intensity: number }> = ({ intensity }) => {
-  const linesRef = useRef<THREE.Group>(null);
-
-  useFrame((state) => {
-    if (linesRef.current) {
-      linesRef.current.rotation.y = state.clock.elapsedTime * 0.1;
-    }
-  });
-
-  const positions: [number, number, number][] = [
-    [-3, 0, 0], // Logical
-    [3, 0, 0],  // Creative
-    [0, 0, 3],  // Emotional
-  ];
-
-  return (
-    <group ref={linesRef}>
-      {positions.map((start, i) => 
-        positions.slice(i + 1).map((end, j) => (
-          <line key={`${i}-${j}`}>
-            <bufferGeometry>
-              <bufferAttribute
-                attach="attributes-position"
-                count={2}
-                array={new Float32Array([...start, ...end])}
-                itemSize={3}
-              />
-            </bufferGeometry>
-            <lineBasicMaterial
-              color="#00ffff"
-              opacity={intensity}
-              transparent
-              linewidth={2}
-            />
-          </line>
-        ))
-      )}
-    </group>
-  );
-};
-
-export const ConsciousnessVisualizer: React.FC = () => {
-  const { state, mindActivities, integrationStrength } = useConsciousness();
-
-  return (
-    <Paper sx={{ p: 2, height: '100%' }}>
-      <Typography variant="h6" gutterBottom>
-        Consciousness Visualization
-      </Typography>
-      <Box sx={{ height: 'calc(100% - 40px)', position: 'relative' }}>
-        <Canvas camera={{ position: [0, 5, 10], fov: 60 }}>
-          <ambientLight intensity={0.3} />
-          <pointLight position={[10, 10, 10]} intensity={1} />
-          <OrbitControls enablePan={true} enableZoom={true} enableRotate={true} />
-          
-          {/* Background */}
-          <mesh scale={[RetryDBContinueEditResumed code continuation and README implementation strategy.2sThe user wants me to continue from where I left off. I was in the middle of providing the Consciousness Visualizer Component code. I'll continue from where it was cut off and then continue with the rest of the comprehensive README implementation.typescript          {/* Background */}
-          <mesh scale={[50, 50, 1]} position={[0, 0, -10]}>
-            <planeGeometry />
-            <meshBasicMaterial color="#000033" />
-          </mesh>
-          
-          {/* Mind Spheres */}
-          <MindSphere
-            position={[-3, 0, 0]}
-            color="#2196F3"
-            name="Logical"
-            activity={mindActivities.logical}
-          />
-          <MindSphere
-            position={[3, 0, 0]}
-            color="#FF9800"
-            name="Creative"
-            activity={mindActivities.creative}
-          />
-          <MindSphere
-            position={[0, 0, 3]}
-            color="#4CAF50"
-            name="Emotional"
-            activity={mindActivities.emotional}
-          />
-          
-          {/* Connection Lines */}
-          <ConnectionLines intensity={integrationStrength} />
-          
-          {/* Central Integration Point */}
-          <mesh position={[0, 0, 0]}>
-            <icosahedronGeometry args={[0.5, 1]} />
-            <meshStandardMaterial
-              color="#ffffff"
-              emissive="#ffffff"
-              emissiveIntensity={integrationStrength}
-              wireframe
-            />
-          </mesh>
-          
-          {/* State Text */}
-          <Text
-            position={[0, 4, 0]}
-            fontSize={0.5}
-            color="#ffffff"
-            anchorX="center"
-            anchorY="middle"
-          >
-            {state}
-          </Text>
-        </Canvas>
-        
-        {/* Overlay Info */}
-        <Box
-          sx={{
-            position: 'absolute',
-            bottom: 16,
-            left: 16,
-            bgcolor: 'rgba(0, 0, 0, 0.7)',
-            color: 'white',
-            p: 2,
-            borderRadius: 1,
-          }}
-        >
-          <Typography variant="body2">
-            Integration: {(integrationStrength * 100).toFixed(1)}%
-          </Typography>
-          <Typography variant="body2">
-            Depth: {(mindActivities.depth * 100).toFixed(1)}%
-          </Typography>
-        </Box>
-      </Box>
-    </Paper>
-  );
-};
-Conversation Interface Component
-typescript// frontend/src/components/conversation/ConversationInterface.tsx
-import React, { useState, useRef, useEffect } from 'react';
-import {
-  Box,
-  Paper,
-  TextField,
-  IconButton,
-  Button,
-  Slider,
-  FormControl,
-  Select,
-  MenuItem,
-  InputLabel,
-  Chip,
-  CircularProgress,
-  Typography,
-  Divider,
-} from '@mui/material';
-import {
-  Send as SendIcon,
-  Mic as MicIcon,
-  AttachFile as AttachFileIcon,
-  Psychology as PsychologyIcon,
-  Bedtime as BedtimeIcon,
-} from '@mui/icons-material';
-import { useConversation } from '../../hooks/useConversation';
-import { MessageBubble } from './MessageBubble';
-import { OutputDisplay } from './OutputDisplay';
-import { InputType, OutputType } from '../../types/consciousness';
-
-export const ConversationInterface: React.FC = () => {
-  const {
-    messages,
-    sendMessage,
-    isProcessing,
-    currentSession,
-    startThinking,
-    startDreaming,
-    isThinking,
-    isDreaming,
-  } = useConversation();
-
-  const [input, setInput] = useState('');
-  const [inputType, setInputType] = useState<InputType>(InputType.TEXT);
-  const [preferredOutputs, setPreferredOutputs] = useState<OutputType[]>([OutputType.TEXT]);
-  const [consciousnessDepth, setConsciousnessDepth] = useState(0.7);
-  const [isRecording, setIsRecording] = useState(false);
-  
-  const messagesEndRef = useRef<HTMLDivElement>(null);
-  const fileInputRef = useRef<HTMLInputElement>(null);
-
-  useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
-  }, [messages]);
-
-  const handleSend = async () => {
-    if (!input.trim() || isProcessing) return;
-
-    await sendMessage({
-      type: inputType,
-      content: input,
-      session_id: currentSession,
-      consciousness_depth: consciousnessDepth,
-      preferred_output_types: preferredOutputs,
-      options: {
-        auto_think: isThinking,
-        dream_mode: isDreaming,
-      },
-    });
-
-    setInput('');
-  };
-
-  const handleKeyPress = (e: React.KeyboardEvent) => {
-    if (e.key === 'Enter' && !e.shiftKey) {
-      e.preventDefault();
-      handleSend();
-    }
-  };
-
-  const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (!file) return;
-
-    // Handle file upload
-    const formData = new FormData();
-    formData.append('file', file);
-    
-    // TODO: Implement file upload
-    console.log('File upload:', file);
-  };
-
-  const toggleRecording = () => {
-    setIsRecording(!isRecording);
-    // TODO: Implement voice recording
-  };
-
-  return (
-    <Box sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
-      {/* Controls */}
-      <Paper sx={{ p: 2, mb: 2 }}>
-        <Box sx={{ display: 'flex', gap: 2, alignItems: 'center', flexWrap: 'wrap' }}>
-          <FormControl size="small" sx={{ minWidth: 120 }}>
-            <InputLabel>Input Type</InputLabel>
-            <Select
-              value={inputType}
-              onChange={(e) => setInputType(e.target.value as InputType)}
-              label="Input Type"
-            >
-              <MenuItem value={InputType.TEXT}>Text</MenuItem>
-              <MenuItem value={InputType.VOICE}>Voice</MenuItem>
-              <MenuItem value={InputType.IMAGE}>Image</MenuItem>
-              <MenuItem value={InputType.DOCUMENT}>Document</MenuItem>
-            </Select>
-          </FormControl>
-
-          <FormControl size="small" sx={{ minWidth: 150 }}>
-            <InputLabel>Output Types</InputLabel>
-            <Select
-              multiple
-              value={preferredOutputs}
-              onChange={(e) => setPreferredOutputs(e.target.value as OutputType[])}
-              label="Output Types"
-              renderValue={(selected) => (
-                <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
-                  {selected.map((value) => (
-                    <Chip key={value} label={value} size="small" />
-                  ))}
-                </Box>
-              )}
-            >
-              <MenuItem value={OutputType.TEXT}>Text</MenuItem>
-              <MenuItem value={OutputType.AUDIO}>Audio</MenuItem>
-              <MenuItem value={OutputType.IMAGE}>Image</MenuItem>
-              <MenuItem value={OutputType.CODE}>Code</MenuItem>
-              <MenuItem value={OutputType.ANALYSIS}>Analysis</MenuItem>
-              <MenuItem value={OutputType.CREATIVE}>Creative</MenuItem>
-              <MenuItem value={OutputType.EMOTIONAL}>Emotional</MenuItem>
-            </Select>
-          </FormControl>
-
-          <Box sx={{ width: 200 }}>
-            <Typography variant="caption">
-              Consciousness Depth: {(consciousnessDepth * 100).toFixed(0)}%
-            </Typography>
-            <Slider
-              value={consciousnessDepth}
-              onChange={(_, value) => setConsciousnessDepth(value as number)}
-              min={0}
-              max={1}
-              step={0.1}
-              size="small"
-            />
-          </Box>
-
-          <Button
-            variant={isThinking ? 'contained' : 'outlined'}
-            startIcon={<PsychologyIcon />}
-            onClick={() => startThinking(!isThinking)}
-            size="small"
-          >
-            {isThinking ? 'Thinking' : 'Think'}
-          </Button>
-
-          <Button
-            variant={isDreaming ? 'contained' : 'outlined'}
-            startIcon={<BedtimeIcon />}
-            onClick={() => startDreaming(!isDreaming)}
-            size="small"
-          >
-            {isDreaming ? 'Dreaming' : 'Dream'}
-          </Button>
-        </Box>
-      </Paper>
-
-      {/* Messages */}
-      <Paper sx={{ flex: 1, overflow: 'auto', p: 2, mb: 2 }}>
-        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-          {messages.map((message, index) => (
-            <Box key={message.id}>
-              <MessageBubble message={message} />
-              {message.output && (
-                <Box sx={{ mt: 1, ml: message.role === 'user' ? 'auto' : 0, mr: message.role === 'user' ? 0 : 'auto', maxWidth: '80%' }}>
-                  <OutputDisplay output={message.output} />
-                </Box>
-              )}
-            </Box>
-          ))}
-          <div ref={messagesEndRef} />
-        </Box>
-      </Paper>
-
-      {/* Input Area */}
-      <Paper sx={{ p: 2 }}>
-        <Box sx={{ display: 'flex', gap: 1, alignItems: 'flex-end' }}>
-          <TextField
-            fullWidth
-            multiline
-            maxRows={4}
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-            onKeyPress={handleKeyPress}
-            placeholder="Enter your message..."
-            disabled={isProcessing}
-            variant="outlined"
-            size="small"
-          />
-          
-          <input
-            type="file"
-            ref={fileInputRef}
-            onChange={handleFileUpload}
-            style={{ display: 'none' }}
-          />
-          
-          <IconButton
-            onClick={() => fileInputRef.current?.click()}
-            disabled={isProcessing}
-            color="primary"
-          >
-            <AttachFileIcon />
-          </IconButton>
-          
-          <IconButton
-            onClick={toggleRecording}
-            disabled={isProcessing}
-            color={isRecording ? 'error' : 'primary'}
-          >
-            <MicIcon />
-          </IconButton>
-          
-          <IconButton
-            onClick={handleSend}
-            disabled={!input.trim() || isProcessing}
-            color="primary"
-          >
-            {isProcessing ? <CircularProgress size={24} /> : <SendIcon />}
-          </IconButton>
-        </Box>
-      </Paper>
-    </Box>
-  );
-};
-
-Database Architecture
-PostgreSQL Schema with pgvector
-sql-- backend/database/migrations/initial_schema.sql
-
--- Enable required extensions
-CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
-CREATE EXTENSION IF NOT EXISTS "pgvector";
-
--- Create database
-CREATE DATABASE prometheus_db;
-
-\c prometheus_db;
-
--- ==================== MEMORY TABLES ====================
-
--- Working Memory
-CREATE TABLE wm_current_context (
-    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
-    key VARCHAR(255) UNIQUE NOT NULL,
-    value JSONB NOT NULL,
-    ttl_seconds INTEGER DEFAULT 3600,
-    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
-    access_count INTEGER DEFAULT 0,
-    last_accessed TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
-    metadata JSONB DEFAULT '{}'::jsonb
-);
-
-CREATE INDEX idx_wm_current_context_key ON wm_current_context(key);
-CREATE INDEX idx_wm_current_context_ttl ON wm_current_context(created_at, ttl_seconds);
-CREATE INDEX idx_wm_current_context_metadata ON wm_current_context USING GIN(metadata);
-
-CREATE TABLE wm_reprocessing_queue (
-    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
-    item_data JSONB NOT NULL,
-    priority INTEGER DEFAULT 5,
-    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
-    processing_attempts INTEGER DEFAULT 0,
-    last_attempt TIMESTAMP WITH TIME ZONE,
-    status VARCHAR(50) DEFAULT 'pending',
-    metadata JSONB DEFAULT '{}'::jsonb
-);
-
-CREATE INDEX idx_wm_reprocessing_priority ON wm_reprocessing_queue(priority DESC, created_at ASC);
-CREATE INDEX idx_wm_reprocessing_status ON wm_reprocessing_queue(status);
-
--- Truth Memory
-CREATE TABLE truths (
-    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
-    claim TEXT NOT NULL,
-    value VARCHAR(20) NOT NULL CHECK (value IN ('TRUE', 'FALSE', 'UNDETERMINED')),
-    confidence FLOAT NOT NULL CHECK (confidence >= 0 AND confidence <= 1),
-    evidence JSONB NOT NULL DEFAULT '[]'::jsonb,
-    metadata JSONB DEFAULT '{}'::jsonb,
-    claim_embedding vector(768),  -- Sentence transformer embeddings
-    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
-    access_count INTEGER DEFAULT 0,
-    last_accessed TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
-    source VARCHAR(255),
-    session_id VARCHAR(255)
-);
-
-CREATE INDEX idx_truths_claim ON truths USING GIN(to_tsvector('english', claim));
-CREATE INDEX idx_truths_value ON truths(value);
-CREATE INDEX idx_truths_confidence ON truths(confidence DESC);
-CREATE INDEX idx_truths_embedding ON truths USING hnsw(claim_embedding vector_cosine_ops);
-CREATE INDEX idx_truths_metadata ON truths USING GIN(metadata);
-CREATE INDEX idx_truths_session ON truths(session_id);
-
--- Dream Memory
-CREATE TABLE dream_entries (
-    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
-    content TEXT NOT NULL,
-    symbols JSONB DEFAULT '[]'::jsonb,
-    emotions JSONB DEFAULT '[]'::jsonb,
-    coherence_score FLOAT CHECK (coherence_score >= 0 AND coherence_score <= 1),
-    vividness_score FLOAT CHECK (vividness_score >= 0 AND vividness_score <= 1),
-    metadata JSONB DEFAULT '{}'::jsonb,
-    dream_embedding vector(2048),  -- Larger embeddings for dreams
-    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
-    session_id VARCHAR(255),
-    consciousness_depth FLOAT,
-    dream_type VARCHAR(50)
-);
-
-CREATE INDEX idx_dreams_symbols ON dream_entries USING GIN(symbols);
-CREATE INDEX idx_dreams_emotions ON dream_entries USING GIN(emotions);
-CREATE INDEX idx_dreams_embedding ON dream_entries USING hnsw(dream_embedding vector_cosine_ops);
-CREATE INDEX idx_dreams_coherence ON dream_entries(coherence_score DESC);
-CREATE INDEX idx_dreams_vividness ON dream_entries(vividness_score DESC);
-CREATE INDEX idx_dreams_session ON dream_entries(session_id);
-
--- Contextual Memory
-CREATE TABLE contextual_interactions (
-    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
-    session_id VARCHAR(255) NOT NULL,
-    interaction_type VARCHAR(50) NOT NULL,
-    input_data JSONB NOT NULL,
-    output_data JSONB,
-    unified_state vector(2048),
-    text_content TEXT,
-    text_embedding vector(768),
-    timestamp TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
-    relevance_score FLOAT DEFAULT 1.0,
-    quality_score FLOAT DEFAULT 0.5,
-    access_count INTEGER DEFAULT 0,
-    last_accessed TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
-    metadata JSONB DEFAULT '{}'::jsonb,
-    mind_states JSONB DEFAULT '{}'::jsonb,
-    emotional_context JSONB DEFAULT '{}'::jsonb
-);
-
-CREATE INDEX idx_context_session ON contextual_interactions(session_id, timestamp DESC);
-CREATE INDEX idx_context_type ON contextual_interactions(interaction_type);
-CREATE INDEX idx_context_text ON contextual_interactions USING GIN(to_tsvector('english', text_content));
-CREATE INDEX idx_context_text_embedding ON contextual_interactions USING hnsw(text_embedding vector_cosine_ops);
-CREATE INDEX idx_context_unified_state ON contextual_interactions USING hnsw(unified_state vector_cosine_ops);
-CREATE INDEX idx_context_relevance ON contextual_interactions(relevance_score DESC);
-CREATE INDEX idx_context_quality ON contextual_interactions(quality_score DESC);
-CREATE INDEX idx_context_metadata ON contextual_interactions USING GIN(metadata);
-
--- ==================== SESSION MANAGEMENT ====================
-
-CREATE TABLE sessions (
-    id VARCHAR(255) PRIMARY KEY,
-    user_id VARCHAR(255),
-    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
-    last_activity TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
-    state VARCHAR(50) DEFAULT 'active',
-    conversation_style VARCHAR(50) DEFAULT 'balanced',
-    preferred_output_types JSONB DEFAULT '[]'::jsonb,
-    consciousness_depth FLOAT DEFAULT 0.7,
-    metadata JSONB DEFAULT '{}'::jsonb,
-    total_interactions INTEGER DEFAULT 0,
-    wake_word_activations INTEGER DEFAULT 0
-);
-
-CREATE INDEX idx_sessions_user ON sessions(user_id);
-CREATE INDEX idx_sessions_state ON sessions(state);
-CREATE INDEX idx_sessions_activity ON sessions(last_activity DESC);
-
--- ==================== PERFORMANCE TRACKING ====================
-
-CREATE TABLE performance_metrics (
-    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
-    timestamp TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
-    metric_type VARCHAR(100) NOT NULL,
-    metric_value FLOAT NOT NULL,
-    component VARCHAR(100),
-    session_id VARCHAR(255),
-    metadata JSONB DEFAULT '{}'::jsonb
-);
-
-CREATE INDEX idx_metrics_timestamp ON performance_metrics(timestamp DESC);
-CREATE INDEX idx_metrics_type ON performance_metrics(metric_type);
-CREATE INDEX idx_metrics_component ON performance_metrics(component);
-CREATE INDEX idx_metrics_session ON performance_metrics(session_id);
-
--- Partitioning for time-series data
-CREATE TABLE performance_metrics_y2025m01 PARTITION OF performance_metrics
-    FOR VALUES FROM ('2025-01-01') TO ('2025-02-01');
-
--- ==================== MIND STATE TRACKING ====================
-
-CREATE TABLE mind_states (
-    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
-    timestamp TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
-    mind_type VARCHAR(50) NOT NULL,
-    state_vector vector(2048),
-    confidence FLOAT,
-    processing_time_ms INTEGER,
-    metadata JSONB DEFAULT '{}'::jsonb,
-    session_id VARCHAR(255)
-);
-
-CREATE INDEX idx_mind_states_type ON mind_states(mind_type, timestamp DESC);
-CREATE INDEX idx_mind_states_vector ON mind_states USING hnsw(state_vector vector_cosine_ops);
-CREATE INDEX idx_mind_states_session ON mind_states(session_id);
-
--- ==================== FUNCTIONS AND TRIGGERS ====================
-
--- Update timestamp trigger
-CREATE OR REPLACE FUNCTION update_updated_at_column()
-RETURNS TRIGGER AS $$
-BEGIN
-    NEW.updated_at = CURRENT_TIMESTAMP;
-    RETURN NEW;
-END;
-$$ language 'plpgsql';
-
-CREATE TRIGGER update_wm_current_context_updated_at BEFORE UPDATE
-    ON wm_current_context FOR EACH ROW EXECUTE FUNCTION update_updated_at_column();
-
-CREATE TRIGGER update_truths_updated_at BEFORE UPDATE
-    ON truths FOR EACH ROW EXECUTE FUNCTION update_updated_at_column();
-
--- Access tracking function
-CREATE OR REPLACE FUNCTION track_access()
-RETURNS TRIGGER AS $$
-BEGIN
-    NEW.access_count = OLD.access_count + 1;
-    NEW.last_accessed = CURRENT_TIMESTAMP;
-    RETURN NEW;
-END;
-$$ language 'plpgsql';
-
--- Cleanup old data function
-CREATE OR REPLACE FUNCTION cleanup_old_data()
-RETURNS void AS $$
-BEGIN
-    -- Clean up expired working memory
-    DELETE FROM wm_current_context 
-    WHERE created_at + (ttl_seconds || ' seconds')::interval < CURRENT_TIMESTAMP;
-    
-    -- Clean up old performance metrics (keep 30 days)
-    DELETE FROM performance_metrics 
-    WHERE timestamp < CURRENT_TIMESTAMP - INTERVAL '30 days';
-    
-    -- Archive old interactions (move to archive table after 90 days)
-    -- Implementation depends on archival strategy
-END;
-$$ language 'plpgsql';
-
--- ==================== PERMISSIONS ====================
-
--- Create application user
-CREATE USER prometheus_app WITH PASSWORD 'your_secure_password_here';
-
--- Grant permissions
-GRANT ALL PRIVILEGES ON DATABASE prometheus_db TO prometheus_app;
-GRANT ALL ON ALL TABLES IN SCHEMA public TO prometheus_app;
-GRANT ALL ON ALL SEQUENCES IN SCHEMA public TO prometheus_app;
-GRANT EXECUTE ON ALL FUNCTIONS IN SCHEMA public TO prometheus_app;
-
--- ==================== INITIAL DATA ====================
-
--- Insert default session
-INSERT INTO sessions (id, user_id, state, conversation_style)
-VALUES ('default', 'system', 'active', 'balanced');
-
-Resource Management
-GPU and Parallel Processing Implementation
-python# backend/hardware/gpu_manager.py
+```python
+# backend/hardware/gpu_manager.py
 import torch
 import torch.cuda as cuda
 import torch.distributed as dist
@@ -3381,673 +2445,81 @@ class ParallelProcessor:
         self.thread_pool.shutdown(wait=True)
         self.process_pool.shutdown(wait=True)
         self.logger.info("Parallel processors shut down")
-
-Installation Guide
-System Requirements
-Minimum Requirements
-
-CPU: 8-core processor (Intel i7/AMD Ryzen 7 or better)
-RAM: 16GB DDR4
-GPU: NVIDIA GPU with 8GB VRAM (GTX 1070 or better) or Apple M1
-Storage: 100GB SSD
-OS: Ubuntu 20.04+, Windows 10/11, macOS 11+
-Python: 3.9+
-PostgreSQL: 14+ with pgvector extension
-
-Recommended Requirements
-
-CPU: 16-core processor (Intel i9/AMD Ryzen 9)
-RAM: 32GB DDR4
-GPU: NVIDIA RTX 3090/4090 or better (24GB VRAM)
-Storage: 500GB NVMe SSD
-Network: Gigabit Ethernet
-
-Installation Steps
-1. Clone Repository
-bashgit clone https://github.com/FatStinkyPanda/prometheus-consciousness.git
-cd prometheus-consciousness
-2. Install System Dependencies
-Ubuntu/Debian:
-bash# Update system
-sudo apt update && sudo apt upgrade -y
-
-# Install Python and development tools
-sudo apt install -y python3.9 python3.9-dev python3.9-venv python3-pip
-sudo apt install -y build-essential cmake git wget curl
-
-# Install PostgreSQL
-sudo apt install -y postgresql-14 postgresql-contrib-14
-sudo apt install -y postgresql-14-pgvector
-
-# Install audio dependencies (for wake word)
-sudo apt install -y portaudio19-dev python3-pyaudio
-
-# Install CUDA (if using NVIDIA GPU)
-wget https://developer.download.nvidia.com/compute/cuda/11.8.0/local_installers/cuda_11.8.0_520.61.05_linux.run
-sudo sh cuda_11.8.0_520.61.05_linux.run
-
-# Install Node.js (for frontend)
-curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
-sudo apt install -y nodejs
-macOS:
-bash# Install Homebrew if not already installed
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-
-# Install dependencies
-brew install python@3.9 postgresql@14 portaudio node
-brew install --cask cmake
-
-# Install pgvector
-git clone https://github.com/pgvector/pgvector.git
-cd pgvector
-make
-make install
-Windows:
-powershell# Install Chocolatey if not already installed
-Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
-
-# Install dependencies
-choco install python postgresql14 nodejs cmake git
-
-# Install Visual Studio Build Tools (required for Python packages)
-choco install visualstudio2022buildtools
-3. Database Setup
-bash# Start PostgreSQL
-sudo systemctl start postgresql
-
-# Create database and user
-sudo -u postgres psql << EOF
-CREATE USER prometheus_app WITH PASSWORD 'your_secure_password_here';
-CREATE DATABASE prometheus_db OWNER prometheus_app;
-\c prometheus_db
-CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
-CREATE EXTENSION IF NOT EXISTS "pgvector";
-GRANT ALL PRIVILEGES ON DATABASE prometheus_db TO prometheus_app;
-EOF
-
-# Run migrations
-cd backend/database/migrations
-psql -U prometheus_app -d prometheus_db -f initial_schema.sql
-4. Backend Setup
-bash# Create virtual environment
-python3.9 -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-
-# Upgrade pip
-pip install --upgrade pip setuptools wheel
-
-# Install PyTorch (adjust for your CUDA version)
-# For CUDA 11.8
-pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
-
-# For CPU only
-# pip install torch torchvision torchaudio
-
-# Install backend requirements
-pip install -r requirements/backend.txt
-
-# Download spaCy models
-python -m spacy download en_core_web_lg
-
-# Configure environment
-cp .env.example .env
-# Edit .env with your database credentials and API keys
-
-# Initialize system
-python backend/scripts/initialize_system.py
-5. Frontend Setup (Phase 2)
-bash# Navigate to frontend directory
-cd frontend
-
-# Install dependencies
-npm install
-
-# Configure environment
-cp .env.example .env.local
-# Edit .env.local with API endpoint
-
-# Build for production
-npm run build
-6. Verify Installation
-bash# Run system tests
-python -m pytest backend/tests/unit/
-python -m pytest backend/tests/integration/
-
-# Check system health
-python backend/scripts/health_check.py
-Configuration
-Backend Configuration (prometheus_config.yaml)
-yaml# backend/config/prometheus_config.yaml
-system:
-  name: "Prometheus Consciousness System"
-  version: "3.0.0"
-  environment: "production"
-
-# Neural network configuration
-neural:
-  device: "auto"  # auto, cuda, cuda:0, cuda:1, mps, cpu
-  precision: "mixed"  # float32, float16, mixed
-  compile_models: true
-  batch_size: 1
-
-# Resource limits
-resource_limits:
-  cpu_percent: 80
-  memory_percent: 75
-  gpu_memory_percent: 85
-  max_parallel_tasks: 8
-
-# API configuration
-api:
-  host: "0.0.0.0"
-  port: 8000
-  cors_origins: ["http://localhost:3000"]
-  rate_limit: 60
-  jwt_secret: "your-secret-key-here"
-  jwt_algorithm: "HS256"
-  jwt_expiration_hours: 24
-
-# Database configuration
-database:
-  host: "localhost"
-  port: 5432
-  name: "prometheus_db"
-  user: "prometheus_app"
-  password: "your_secure_password_here"
-  pool_size: 20
-  max_overflow: 10
-
-# Wake word configuration
-wake_word:
-  enabled: true
-  keyword: "prometheus"
-  sensitivity: 0.5
-  audio_gain: 1.0
-
-# Logging configuration
-logging:
-  level: "INFO"
-  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
-  file: "logs/prometheus.log"
-  max_size: "100MB"
-  backup_count: 5
-Running the System
-Start Backend (Phase 1)
-bash# Activate virtual environment
-source venv/bin/activate
-
-# Start the main application with PyQt6 GUI
-python backend/main.py
-
-# Or start in headless mode with API only
-python backend/main.py --headless --api-only
-
-# Or start with specific configuration
-python backend/main.py --config custom_config.yaml --gpu 0,1
-Start Frontend (Phase 2)
-bash# Development mode
-cd frontend
-npm run dev
-
-# Production mode
-npm start
-Docker Deployment (Optional)
-dockerfile# Dockerfile
-FROM nvidia/cuda:11.8.0-runtime-ubuntu22.04
-
-# Install system dependencies
-RUN apt-get update && apt-get install -y \
-    python3.9 python3.9-dev python3-pip \
-    postgresql-client libpq-dev \
-    portaudio19-dev \
-    && rm -rf /var/lib/apt/lists/*
-
-# Set working directory
-WORKDIR /app
-
-# Copy requirements
-COPY requirements/ requirements/
-
-# Install Python dependencies
-RUN pip3 install --no-cache-dir -r requirements/backend.txt
-
-# Copy application
-COPY backend/ backend/
-COPY config/ config/
-
-# Expose ports
-EXPOSE 8000
-
-# Run application
-CMD ["python3", "backend/main.py", "--headless", "--api-only"]
-
-Testing Strategy
-Unit Testing
-python# backend/tests/unit/test_consciousness.py
-import pytest
-import asyncio
-import torch
-from unittest.mock import Mock, AsyncMock, patch
-
-from backend.core.consciousness import UnifiedConsciousness, ConsciousnessState
-from backend.core.minds import LogicalMind, CreativeMind, EmotionalMind
-from backend.hardware import HardwareResourceManager
-
-class TestUnifiedConsciousness:
-    """Unit tests for UnifiedConsciousness."""
-    
-    @pytest.fixture
-    async def consciousness(self):
-        """Create consciousness instance for testing."""
-        config = {
-            'neural': {'device': 'cpu', 'state_dim': 512},
-            'minds': {
-                'logical': {'reasoning_depth': 3},
-                'creative': {'fibonacci_length': 10},
-                'emotional': {'empathy_depth': 4}
-            }
-        }
-        
-        resource_manager = Mock(spec=HardwareResourceManager)
-        resource_manager.get_available_resources.return_value = {
-            'cpu_count': 8,
-            'memory_available_mb': 16000,
-            'gpus': []
-        }
-        
-        consciousness = await UnifiedConsciousness.create(config, resource_manager)
-        yield consciousness
-        
-        # Cleanup
-        await consciousness.shutdown()
-        
-    @pytest.mark.asyncio
-    async def test_initialization(self, consciousness):
-        """Test consciousness initialization."""
-        assert consciousness.state == ConsciousnessState.ACTIVE
-        assert consciousness.consciousness_depth == 0.5
-        assert consciousness.logical_mind is not None
-        assert consciousness.creative_mind is not None
-        assert consciousness.emotional_mind is not None
-        
-    @pytest.mark.asyncio
-    async def test_process_input(self, consciousness):
-        """Test input processing."""
-        input_data = {
-            'type': 'text',
-            'content': 'Hello, Prometheus',
-            'session_id': 'test_session',
-            'consciousness_depth': 0.7
-        }
-        
-        result = await consciousness.process_input(input_data)
-        
-        assert result['status'] == 'success'
-        assert 'output' in result
-        assert result['consciousness_state'] == ConsciousnessState.CONVERSING.value
-        
-    @pytest.mark.asyncio
-    async def test_parallel_processing(self, consciousness):
-        """Test parallel mind processing."""
-        input_data = {
-            'type': 'multimodal',
-            'content': 'Test',
-            'modalities': ['text', 'image'],
-            'parallel_capable': True
-        }
-        
-        with patch.object(consciousness, '_parallel_mind_processing') as mock_parallel:
-            mock_parallel.return_value = {
-                'logical': {'state': torch.zeros(512), 'confidence': 0.8},
-                'creative': {'state': torch.zeros(512), 'confidence': 0.7},
-                'emotional': {'state': torch.zeros(512), 'confidence': 0.9}
-            }
-            
-            result = await consciousness.process_input(input_data)
-            mock_parallel.assert_called_once()
-            
-    @pytest.mark.asyncio
-    async def test_resource_allocation(self, consciousness):
-        """Test resource allocation."""
-        context = await consciousness._allocate_resources(
-            ProcessingContext(session_id='test', gpu_required=True)
-        )
-        
-        assert context.resource_allocation is not None
-        assert 'logical' in context.resource_allocation
-        
-    @pytest.mark.asyncio 
-    async def test_consciousness_state_transitions(self, consciousness):
-        """Test state transitions."""
-        # Test thinking state
-        await consciousness.start_thinking()
-        assert consciousness.state == ConsciousnessState.THINKING
-        
-        # Test dreaming state
-        await consciousness.start_dreaming()
-        assert consciousness.state == ConsciousnessState.DREAMING
-        
-        # Test stop
-        await consciousness.stop_autonomous_processing()
-        assert consciousness.state == ConsciousnessState.ACTIVE
-Integration Testing
-python# backend/tests/integration/test_full_system.py
-import pytest
-import asyncio
-from backend.main import create_application
-
-class TestFullSystem:
-    """Integration tests for complete system."""
-    
-    @pytest.fixture
-    async def app(self):
-        """Create full application."""
-        app = await create_application(test_mode=True)
-        yield app
-        await app.shutdown()
-        
-    @pytest.mark.asyncio
-    async def test_end_to_end_conversation(self, app):
-        """Test complete conversation flow."""
-        # Start conversation
-        response = await app.process_conversation({
-            'message': 'What is consciousness?',
-            'user_id': 'test_user'
-        })
-        
-        assert response['success']
-        assert len(response['output']) > 0
-        
-        # Continue conversation
-        response2 = await app.process_conversation({
-            'message': 'Can you elaborate on that?',
-            'user_id': 'test_user',
-            'session_id': response['session_id']
-        })
-        
-        assert response2['success']
-        assert response2['context_maintained']
-        
-    @pytest.mark.asyncio
-    async def test_memory_persistence(self, app):
-        """Test memory systems."""
-        # Add truth
-        await app.consciousness.truth_memory.add_truth(
-            "Test is running", "TRUE", 0.9, []
-        )
-        
-        # Verify retrieval
-        truths = await app.consciousness.truth_memory.get_related_truths("Test")
-        assert len(truths) > 0
-        assert truths[0]['claim'] == "Test is running"
-Performance Testing
-python# backend/tests/performance/test_performance.py
-import pytest
-import asyncio
-import time
-from backend.core.consciousness import UnifiedConsciousness
-
-class TestPerformance:
-    """Performance benchmarks."""
-    
-    @pytest.mark.benchmark
-    async def test_response_time(self, consciousness, benchmark):
-        """Benchmark response time."""
-        input_data = {
-            'type': 'text',
-            'content': 'Simple test input',
-            'session_id': 'perf_test'
-        }
-        
-        result = await benchmark(consciousness.process_input, input_data)
-        assert result['processing_time'] < 1.0  # Under 1 second
-        
-    @pytest.mark.benchmark
-    async def test_throughput(self, consciousness):
-        """Test system throughput."""
-        num_requests = 100
-        start_time = time.time()
-        
-        tasks = []
-        for i in range(num_requests):
-            task = consciousness.process_input({
-                'type': 'text',
-                'content': f'Request {i}',
-                'session_id': f'throughput_test_{i}'
-            })
-            tasks.append(task)
-            
-        results = await asyncio.gather(*tasks)
-        
-        duration = time.time() - start_time
-        throughput = num_requests / duration
-        
-        assert throughput > 10  # At least 10 requests per second
-        assert all(r['status'] == 'success' for r in results)
-
-API Reference
-RESTful API Endpoints
-Consciousness Endpoints
-POST /api/v1/consciousness/process
-bashcurl -X POST http://localhost:8000/api/v1/consciousness/process \
-  -H "Content-Type: application/json" \
-  -H "Authorization: Bearer YOUR_TOKEN" \
-  -d '{
-    "type": "text",
-    "content": "Hello Prometheus",
-    "session_id": "session_123",
-    "consciousness_depth": 0.7,
-    "preferred_output_types": ["text", "emotional"]
-  }'
-GET /api/v1/consciousness/state
-bashcurl http://localhost:8000/api/v1/consciousness/state \
-  -H "Authorization: Bearer YOUR_TOKEN"
-POST /api/v1/consciousness/control/{action}
-bashcurl -X POST http://localhost:8000/api/v1/consciousness/control/start_thinking \
-  -H "Authorization: Bearer YOUR_TOKEN"
-Conversation Endpoints
-POST /api/v1/conversation/message
-bashcurl -X POST http://localhost:8000/api/v1/conversation/message \
-  -H "Content-Type: application/json" \
-  -H "Authorization: Bearer YOUR_TOKEN" \
-  -d '{
-    "message": "What is the meaning of consciousness?",
-    "session_id": "session_123"
-  }'
-GET /api/v1/conversation/history/{session_id}
-bashcurl http://localhost:8000/api/v1/conversation/history/session_123 \
-  -H "Authorization: Bearer YOUR_TOKEN"
-Memory Endpoints
-POST /api/v1/memory/truth
-bashcurl -X POST http://localhost:8000/api/v1/memory/truth \
-  -H "Content-Type: application/json" \
-  -H "Authorization: Bearer YOUR_TOKEN" \
-  -d '{
-    "claim": "The sky is blue",
-    "context": {"source": "observation"}
-  }'
-GET /api/v1/memory/search
-bashcurl "http://localhost:8000/api/v1/memory/search?query=consciousness&type=contextual&limit=10" \
-  -H "Authorization: Bearer YOUR_TOKEN"
-WebSocket API
-Connection
-javascriptconst ws = new WebSocket('ws://localhost:8000/ws');
-
-ws.onopen = () => {
-  console.log('Connected to Prometheus');
-  
-  // Authenticate
-  ws.send(JSON.stringify({
-    type: 'auth',
-    payload: { token: 'YOUR_TOKEN' }
-  }));
-};
-Message Types
-Process Input
-javascriptws.send(JSON.stringify({
-  type: 'process_input',
-  payload: {
-    type: 'text',
-    content: 'Hello Prometheus',
-    session_id: 'session_123'
-  }
-}));
-Subscribe to Thoughts
-javascriptws.send(JSON.stringify({
-  type: 'subscribe',
-  payload: { channel: 'thoughts' }
-}));
-
-ws.onmessage = (event) => {
-  const data = JSON.parse(event.data);
-  if (data.type === 'thought') {
-    console.log('New thought:', data.payload);
-  }
-};
-
-Troubleshooting Guide
-Common Issues and Solutions
-1. GPU Memory Issues
-Problem: CUDA out of memory errors
-RuntimeError: CUDA out of memory. Tried to allocate...
-Solutions:
-python# Reduce batch size
-config['neural']['batch_size'] = 1
-
-# Enable gradient checkpointing
-config['neural']['gradient_checkpointing'] = True
-
-# Reduce model precision
-config['neural']['precision'] = 'float16'
-
-# Clear cache regularly
-torch.cuda.empty_cache()
-2. Database Connection Issues
-Problem: Cannot connect to PostgreSQL
-asyncpg.exceptions.InvalidCatalogNameError: database "prometheus_db" does not exist
-Solutions:
-bash# Check PostgreSQL is running
-sudo systemctl status postgresql
-
-# Create database
-sudo -u postgres createdb prometheus_db
-
-# Check pgvector extension
-sudo -u postgres psql -d prometheus_db -c "CREATE EXTENSION IF NOT EXISTS pgvector;"
-
-# Verify credentials
-psql -U prometheus_app -d prometheus_db -c "SELECT version();"
-3. Wake Word Not Detecting
-Problem: Wake word "Prometheus" not being detected
-Solutions:
-python# Adjust sensitivity
-config['wake_word']['sensitivity'] = 0.3  # Lower = more sensitive
-
-# Check microphone
-python -m speech_recognition
-
-# Test audio input
-import pyaudio
-p = pyaudio.PyAudio()
-print(p.get_device_count())  # Should show available devices
-4. High CPU Usage
-Problem: System using too much CPU
-Solutions:
-python# Limit parallel workers
-config['resource_limits']['max_parallel_tasks'] = 4
-
-# Enable CPU throttling
-config['resource_limits']['cpu_percent'] = 60
-
-# Reduce background processing
-config['autonomous']['thinking_interval'] = 1.0  # Increase interval
-5. Memory Leaks
-Problem: Memory usage gradually increasing
-Solutions:
-python# Enable automatic cleanup
-config['memory']['auto_cleanup'] = True
-config['memory']['cleanup_interval'] = 300  # 5 minutes
-
-# Limit context window
-config['memory']['context_window'] = 500  # Reduce from 1000
-
-# Monitor memory usage
-import psutil
-process = psutil.Process()
-print(f"Memory: {process.memory_info().rss / 1024 / 1024:.2f} MB")
-Debug Mode
-Enable comprehensive debugging:
-python# backend/debug_config.py
-DEBUG_CONFIG = {
-    'logging': {
-        'level': 'DEBUG',
-        'detailed_tracebacks': True,
-        'log_sql': True
-    },
-    'profiling': {
-        'enabled': True,
-        'profile_dir': 'profiles/'
-    },
-    'monitoring': {
-        'verbose': True,
-        'metrics_interval': 1.0
-    }
-}
-
-# Run with debug mode
-python backend/main.py --debug --config debug_config.py
-Performance Profiling
-python# backend/scripts/profile_system.py
-import cProfile
-import pstats
-from backend.main import main
-
-def profile_system():
-    profiler = cProfile.Profile()
-    profiler.enable()
-    
-    # Run system
-    main()
-    
-    profiler.disable()
-    
-    # Save stats
-    stats = pstats.Stats(profiler)
-    stats.sort_stats('cumulative')
-    stats.print_stats(50)  # Top 50 functions
-    stats.dump_stats('prometheus_profile.prof')
-
-if __name__ == '__main__':
-    profile_system()
-
-Legal and Licensing
-License Agreement
-Prometheus Consciousness System v3.0
-Copyright © 2025 Daniel A. Bissey (FatStinkyPanda). All Rights Reserved.
-This software and all associated files, including but not limited to source code, documentation, designs, algorithms, and concepts, are the exclusive property of Daniel A. Bissey (FatStinkyPanda).
-Terms of Use
-
-Prohibition of Unauthorized Use: No part of this system may be used, copied, modified, distributed, sold, or reproduced in any form without express written permission from Daniel A. Bissey.
-Intellectual Property: All algorithms, including the triadic mind architecture, consciousness integration methods, and processing techniques, are proprietary trade secrets.
-Contact for Licensing: For licensing inquiries, partnerships, or permission requests, contact:
-
-Email: support@fatstinkypanda.com
-Subject Line: "Prometheus Consciousness System Licensing Inquiry"
-
-
-Violations: Any unauthorized use will be prosecuted to the fullest extent of applicable law.
-
-Attribution
-This system was created by Daniel A. Bissey (FatStinkyPanda) as a revolutionary approach to artificial consciousness. The innovations include:
-
-Triadic mind architecture with specialized neural networks
-Advanced consciousness state management
-Production-ready implementation with zero placeholders
-Comprehensive hardware optimization
-Complete offline operation capabilities
-
-
-Conclusion
-The Prometheus Consciousness System v3.0 represents a production-ready implementation of artificial consciousness with a sophisticated PyQt6 backend (Phase 1) and modern React frontend (Phase 2). The system is designed for real-world deployment with comprehensive resource management, error handling, and scalability.
-For support, licensing, or contributions, please contact Daniel A. Bissey at support@fatstinkypanda.com.
-Remember: This is proprietary software. Respect the license terms and contact the owner for any usage beyond personal evaluation.
+```
+
+## Phase 2: Frontend Development with React
+
+### Frontend Architecture Overview
+
+The Phase 2 frontend provides a modern, responsive web interface built with React and TypeScript that communicates with the Phase 1 backend via RESTful APIs and WebSocket connections.
+
+### Directory Structure
+
+```
+frontend/
+├── src/
+│   ├── components/
+│   │   ├── consciousness/
+│   │   │   ├── ConsciousnessVisualizer.tsx
+│   │   │   ├── MindStateDisplay.tsx
+│   │   │   ├── ThoughtStream.tsx
+│   │   │   └── ConsciousnessControls.tsx
+│   │   ├── conversation/
+│   │   │   ├── ConversationInterface.tsx
+│   │   │   ├── MessageBubble.tsx
+│   │   │   ├── InputControls.tsx
+│   │   │   └── OutputDisplay.tsx
+│   │   ├── memory/
+│   │   │   ├── MemoryBrowser.tsx
+│   │   │   ├── TruthEvaluator.tsx
+│   │   │   └── DreamViewer.tsx
+│   │   ├── system/
+│   │   │   ├── ResourceMonitor.tsx
+│   │   │   ├── PerformanceMetrics.tsx
+│   │   │   └── SystemControls.tsx
+│   │   └── shared/
+│   │       ├── Layout.tsx
+│   │       ├── Navigation.tsx
+│   │       └── ErrorBoundary.tsx
+│   ├── services/
+│   │   ├── api/
+│   │   │   ├── client.ts
+│   │   │   ├── consciousness.ts
+│   │   │   ├── conversation.ts
+│   │   │   └── memory.ts
+│   │   ├── websocket/
+│   │   │   ├── connection.ts
+│   │   │   └── handlers.ts
+│   │   └── storage/
+│   │       └── localState.ts
+│   ├── state/
+│   │   ├── store.ts
+│   │   ├── slices/
+│   │   │   ├── consciousnessSlice.ts
+│   │   │   ├── conversationSlice.ts
+│   │   │   └── systemSlice.ts
+│   │   └── middleware/
+│   │       └── websocketMiddleware.ts
+│   ├── hooks/
+│   │   ├── useConsciousness.ts
+│   │   ├── useWebSocket.ts
+│   │   └── useResourceMonitor.ts
+│   ├── utils/
+│   │   ├── formatters.ts
+│   │   ├── validators.ts
+│   │   └── constants.ts
+│   ├── types/
+│   │   ├── consciousness.ts
+│   │   ├── api.ts
+│   │   └── websocket.ts
+│   ├── styles/
+│   │   ├── globals.css
+│   │   ├── themes/
+│   │   └── components/
+│   ├── App.tsx
+│   └── index.tsx
+├── public/
+├── package.json
+├── tsconfig.json
+├── webpack.config.js
+└── README.md
