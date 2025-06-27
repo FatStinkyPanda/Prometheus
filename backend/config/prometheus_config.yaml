@@ -1,0 +1,162 @@
+# backend/config/prometheus_config.yaml
+#
+# Primary configuration file for the Prometheus Consciousness System.
+# This file defines the behavior of all core components.
+# Production deployments should override sensitive values using environment variables.
+# Example: export PROMETHEUS_DATABASE_PASSWORD=your_secure_password
+
+# --- System-Wide Settings ---
+system:
+  name: "Prometheus Consciousness System"
+  version: "3.0.1-infinite" # Updated version to reflect major integration
+  environment: "development" # Can be 'development', 'staging', or 'production'
+
+# --- Neural Network & Hardware Configuration ---
+neural:
+  device: "auto" # auto, cuda, cuda:0, cuda:1, mps, cpu
+  precision: "mixed" # float32, float16, mixed (for AMP)
+  compile_models: true # If PyTorch 2.0+ with torch.compile support
+  batch_size: 1 # Default batch size for inference tasks by minds
+  gradient_checkpointing: false # For training, to save memory
+
+# --- Hardware Resource Management ---
+resource_limits:
+  cpu_percent: 85.0
+  memory_percent: 80.0
+  gpu_memory_percent: 85.0
+  max_parallel_tasks: 4 # For ParallelProcessor in UnifiedConsciousness
+
+# --- API Server Configuration (FastAPI) ---
+api:
+  scheme: "http"
+  host: "0.0.0.0" # Binds to all available network interfaces
+  port: 8001 # Default port for the main API server
+  cors_origins: 
+    - "http://localhost:3000" # Example React frontend
+    - "http://127.0.0.1:3000"
+    - "http://0.0.0.0:3000" # If accessing from another device on LAN
+    # Add other origins as needed
+  rate_limit: 100 # Requests per minute (example, middleware not fully implemented yet)
+  jwt_secret: "a_very_insecure_default_secret_key_change_me_for_production"
+  jwt_algorithm: "HS256"
+  jwt_expiration_hours: 24
+
+# --- Database Connection (PostgreSQL with vector extension) ---
+database:
+  host: "localhost"
+  port: 5432
+  name: "prometheus_db"
+  user: "prometheus_app"
+  password: "your_secure_password_here" # This is synchronized by run_prometheus.py
+  pool_min_size: 5
+  pool_max_size: 20
+  pool_acquire_timeout: 30 # Seconds
+
+# --- Wake Word Detection (for voice input) ---
+wake_word:
+  enabled: true
+  keyword: "prometheus" # Keyword to activate voice input
+  sensitivity: 0.5 # 0.0 (less sensitive) to 1.0 (more sensitive)
+  audio_gain: 1.0 # Factor to amplify audio input if needed
+
+# --- Mind-Specific Configurations ---
+minds:
+  logical:
+    model_name: "sentence-transformers/all-mpnet-base-v2" # For embeddings and logical state
+    reasoning_depth: 5 # Hypothetical setting for complex reasoning
+    cache_size: 128 # LRU cache size for processed results
+  creative:
+    model_name: "TinyLlama/TinyLlama-1.1B-Chat-v1.0" # Generative model
+    temperature: 0.7
+    top_k: 50
+    max_new_tokens: 512 # Max tokens for a single generation call by this mind
+    cache_size: 128
+  emotional:
+    model_name: "j-hartmann/emotion-english-distilroberta-base" # Emotion classification
+    empathy_depth: 4 # Hypothetical setting for emotional analysis
+    cache_size: 128
+
+# --- Memory System Configurations ---
+memory:
+  vector_dimension: 768 # Must match the output dimension of the logical_mind model
+  # Contextual Memory (Legacy) - settings might be used by Hierarchical if not overridden
+  contextual_memory: 
+    context_window: 100 # For simple context retrieval, less relevant with HierarchicalMemory
+    relevance_threshold: 0.75
+  # Truth Memory
+  truth_memory:
+    truth_confidence_threshold: 0.9 # Min confidence to consider a claim as established truth
+    conflict_resolution_threshold: 0.8 # Min similarity for a new claim to be considered related to an existing truth
+  # Hierarchical Memory specific settings (if any beyond defaults)
+  hierarchical_memory:
+    active_threshold_nodes: 150 # Max nodes in active tier before promotion
+    recent_threshold_nodes: 1500 # Max nodes in recent DB tier before compression
+  # Auto Cleanup
+  auto_cleanup:
+    enabled: true
+    interval_seconds: 3600 # How often to run cleanup (e.g., 1 hour)
+    working_memory_ttl_seconds: 7200 # Default TTL for items in WorkingMemory (e.g., 2 hours)
+
+# --- MODIFICATION START: Added/Updated sections for Infinite Context & Learning ---
+# --- Infinite Context System (EnhancedInfiniteContextManager) ---
+infinite_context:
+  # Settings for EnhancedInfiniteContextManager and its components
+  max_active_blocks: 2000       # Max TokenBlock objects in direct memory before aggressive compression
+  compression_threshold: 0.7    # Score above which blocks are considered for compression
+  batch_size: 32                # Batch size for internal training of the compression model
+  checkpoint_interval: 5000     # Tokens processed by ICM before creating an internal context checkpoint
+  
+  # Settings for LearnedCompressionModel within EnhancedInfiniteContextManager
+  compression_model:
+    compression_ratio: 0.1      # Target ratio for neural compression
+    num_layers: 4               # Number of layers in encoder/decoder of compression model
+    learning_rate: 0.0005       # Learning rate for the compression model's optimizer
+  
+  # Settings for HierarchicalAttentionMechanism within EnhancedInfiniteContextManager
+  attention_mechanism:
+    num_scales: 5               # Number of hierarchical attention scales
+    base_window_size: 1024      # Base token window size for the finest attention scale
+    learning_rate: 0.01         # Learning rate for adapting attention weights
+
+  # Settings for AdaptiveTokenBuffer within EnhancedInfiniteContextManager
+  adaptive_buffer:
+    base_size: 10000            # Initial size of the adaptive token buffer
+    adaptation_rate: 0.05       # Rate at which buffer size adapts
+
+# --- Self-Improving Engine (AdvancedSelfImprovingEngine) ---
+self_improving_engine:
+  batch_size: 32                # Batch size for ASIE's learning cycles
+  learning_interval: 100        # Interactions before ASIE triggers a learning cycle
+  meta_learning_interval: 500   # Interactions before ASIE triggers a meta-learning update
+  save_interval: 1000           # Interactions before ASIE saves its internal models
+  model_dir: "models/self_improving_engine" # Directory to save ASIE's learned models/state
+  # ASIE's MetaLearningNetwork parameters (optional, can use defaults in class)
+  meta_learner_network:
+    input_dim: 768              # Should match embedding dimension
+    hidden_dim: 512
+    num_tasks: 10               # Number of distinct task types for meta-learning
+
+# --- MODIFICATION END ---
+
+# --- I/O Systems Configuration ---
+io_systems:
+  nlp: # NaturalLanguageProcessor settings
+    model: "en_core_web_lg" # spaCy model for NLP tasks
+  output_generator:
+    default_max_length: 512 # Default max length for generated text segments by OutputGenerator
+    repetition_penalty: 1.2
+  # Settings for InfiniteStreamProcessor (if any direct config is needed beyond defaults in its class)
+  infinite_stream_processor:
+    chunk_size: 1000            # Base character chunk size for ISP input processing
+    parallel_streams: 4         # Number of parallel workers for ISP
+    buffer_timeout: 2.0         # Seconds ISP waits before processing incomplete buffer
+
+# --- Default Logging Configuration ---
+# This can be overridden or augmented by logging_config.yaml
+logging:
+  level: "INFO" # DEBUG, INFO, WARNING, ERROR, CRITICAL
+  format: "%(asctime)s - %(name)s - [%(levelname)s] - (%(threadName)s) - %(message)s"
+  datefmt: "%Y-%m-%d %H:%M:%S" # Added for consistency with logging_config.yaml
+  file: "logs/prometheus.log"
+  max_size: "100MB" # e.g., 100MB, 1GB
+  backup_count: 5

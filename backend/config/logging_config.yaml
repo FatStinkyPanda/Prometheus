@@ -1,0 +1,27 @@
+# backend/config/logging_config.yaml
+#
+# Specialized logging configuration for the Prometheus Consciousness System.
+# Settings here will be merged with and can override the logging settings in prometheus_config.yaml.
+# This allows for more granular control, especially for debugging or production environments,
+# without modifying the main configuration file.
+
+logging:
+  # Override the default log level. Set to "DEBUG" for verbose output during development.
+  # For production, you might remove this line to use the "INFO" level from the main config,
+  # or explicitly set it to "INFO" or "WARNING".
+  level: "DEBUG"
+
+  # A more detailed log format for debugging, including millisecond precision and line numbers.
+  # This will override the 'format' key from prometheus_config.yaml.
+  format: "%(asctime)s.%(msecs)03d | %(levelname)-8s | %(name)s:%(lineno)d - (%(threadName)s) - %(message)s"
+  
+  # A custom date format for the asctime field.
+  datefmt: "%Y-%m-%d %H:%M:%S"
+
+  # Example of overriding file-related settings.
+  # You might use a different log file for different configurations (e.g., debug vs. prod).
+  file: "logs/prometheus_detailed.log"
+
+  # Example of overriding log rotation settings.
+  max_size: "50MB"  # Reduce max size for more frequent rotation in debug.
+  backup_count: 10  # Keep more backup files than the default.
